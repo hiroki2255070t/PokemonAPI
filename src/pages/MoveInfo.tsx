@@ -1,12 +1,11 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 import { useMove } from "../hooks/useMove";
 import { usePokemons } from "../hooks/usePokemons";
 import { PokemonArrayTable } from "../components/PokemonArrayTable";
 import { InputIDButton } from "../components/InputIDButton";
-import { InputNameButton } from "../components/InputNameButton";
+import { InputNameButton } from "../components/InputMoveNameButton";
 
 export const MoveInfo = () => {
     const [searchParams] = useSearchParams()
@@ -22,7 +21,6 @@ export const MoveInfo = () => {
 
     useEffect(() => {
         moveID.current = move.ID
-        console.log("222", moveID.current)
         getPokemponsByMoveID({moveID: moveID.current})
     }, [move])
 
@@ -44,7 +42,7 @@ export const MoveInfo = () => {
                 <InputIDButton handleClick={handleClickID} />
             </div>
             <div className="flex justify-end mt-2">
-                <InputNameButton handleClick={handleClickName} />
+                <InputNameButton handleClick={handleClickName} getMoveByID={getMoveByID} />
             </div>
             <div className="flex items-center justify-center pt-6">
                 <div className="flex-graw flex items-center grid-item border p-2 bg-gray-200 rounded-[16px] shadow-md w-2/3">

@@ -13,14 +13,11 @@ export const LoginPage = React.memo(() => {
 
     const handleLogin = async () => {
         //setUser({Name: name, Password: password})
-        //await getToken({Name: name, Password: password})
+        await getToken({Name: name, Password: password})
         try {
             const correctPassword = await getUserPassword({Name: name, Password: password});
-            console.log("after await")
             
-            //navigate('../pokemonList')
             if (password === correctPassword) {
-                //setIsLogined(true)
                 navigate('../pokemonList')
             } else {
                     console.log("パスワードが正しくありません")
@@ -30,9 +27,6 @@ export const LoginPage = React.memo(() => {
         }
     }
 
-    const handleLogin2 = () => {
-        navigate('../pokemonList')
-    }
 
 
     return (

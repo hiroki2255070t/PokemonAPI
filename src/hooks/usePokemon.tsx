@@ -79,5 +79,5 @@ export const usePokemon = ({ID, Name}: {ID?: number | string | undefined | null,
     }
 
 
-    return {pokemon, moves, getPokemonByName, getPokemonByID, getMovesByPokemonID}
+    return {pokemon, setPokemon, moves, getPokemonByName, getPokemonByID, getMovesByPokemonID}
 }

@@ -3,7 +3,7 @@ import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 
 import { usePokemon } from "../hooks/usePokemon"
 import { InputIDButton } from "../components/InputIDButton";
-import { InputNameButton } from "../components/InputNameButton";
+import { InputNameButton } from "../components/InputPokemonNameButton";
 import { MoveArrayTable } from "../components/MoveArrayTable";
 import { NextIDButton } from "../components/NextIDButton";
 import { PreIDButton } from "../components/PreIDButton";
@@ -13,7 +13,7 @@ export const PokemonInfo = () => {
     const [searchParams] = useSearchParams()
     const ID = searchParams.get("pokemonID") || "1"
     const name = searchParams.get("Name")
-    const {pokemon, moves, getPokemonByName, getPokemonByID, getMovesByPokemonID} = usePokemon({ID: ID, Name: name})
+    const {pokemon, setPokemon, moves, getPokemonByName, getPokemonByID, getMovesByPokemonID} = usePokemon({ID: ID, Name: name})
     const pokemonID = useRef(1)
 
     useEffect(() => {
@@ -22,6 +22,7 @@ export const PokemonInfo = () => {
 
     useEffect(() => {
         pokemonID.current = pokemon.ID
+        console.log("200")
     }, [pokemon])
 
     const handleClickID = (id: string) => {
@@ -52,7 +53,7 @@ export const PokemonInfo = () => {
                     <InputIDButton handleClick={handleClickID} />
             </div>
             <div className="flex justify-end mt-2">
-                    <InputNameButton handleClick={handleClickName} />
+                    <InputNameButton handleClick={handleClickName} getPokemonByID={getPokemonByID} />
             </div>
             <div className="flex justify-center pt-6">
                 <div className="flex-graw flex items-center grid-item border pl-2 bg-gray-200 rounded-[16px] shadow-md w-full h-fit">

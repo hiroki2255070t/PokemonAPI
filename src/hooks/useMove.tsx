@@ -73,5 +73,5 @@ export const useMove = ({ID}: {ID: number | string | undefined | null}) => {
         }
     }
 
-    return {move, getMoveByID, getMoveByName}
+    return {move, setMove, getMoveByID, getMoveByName}
 }

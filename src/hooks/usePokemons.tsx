@@ -107,5 +107,5 @@ export const usePokemons = () => {
         }
     }
 
-    return {pokemons, getPokemons, getPokemponsByMoveID, getPokemponsByKeyWord}
+    return {pokemons, setPokemons, getPokemons, getPokemponsByMoveID, getPokemponsByKeyWord}
 }

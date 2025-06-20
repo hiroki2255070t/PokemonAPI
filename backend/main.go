@@ -44,6 +44,8 @@ func main() {
 	http.Handle("/move/byName/", handleCORS(http.HandlerFunc(moveAPI.GetByName)))
 	// 指定されたポケモンIDが覚える技をgetするAPI
 	http.Handle("/move/byPokemonID/", handleCORS(http.HandlerFunc(moveAPI.GetByPokemonID)))
+	// 指定されたキーワードを名前に含む技をgetするAPI
+	http.Handle("/move/byKeyWord/", handleCORS(http.HandlerFunc(moveAPI.GetMovesByKeyWord)))
 
 	
 
